@@ -168,7 +168,8 @@ import java.util.ArrayList;
 public class Email {
 	
 	private static Email instance;
-	//Email을 추가할 때마다 naver, gmail, hanmail 등의 메일서버나 도메인명이 중복되어 저장될 수 있기 때문에 싱글톤 패턴을 사용하였다.
+	//Email을 추가할 때마다 naver, gmail, hanmail 등의 메일서버나 도메인명이 중복되어 저장될 수 있기 때문에 
+	// 싱글톤 패턴을 사용하였다.
 
 	private static ArrayList<String> mail_server = new ArrayList<String>();
 	private static ArrayList<String> domain_name = new ArrayList<String>();
@@ -260,7 +261,8 @@ public class Email {
 		//저장된 도메인명으로 끝나지 않으면 종료시킨다.
 
 		String[] tmparr = tmp2.split("@");
-		// 정규식에서 밝혔듯 @는 이메일명과 사이트 이름을 나눠주는 구간밖에 사용할 수 없으므로 무조건 이메일명과 사이트 이름으로 나눠진다.
+		// 정규식에서 밝혔듯 @는 이메일명과 사이트 이름을 나눠주는 구간밖에 사용할 수 없으므로 무조건 
+		// 이메일명과 사이트 이름으로 나눠진다.
 		
 		real = false;
 		
@@ -299,7 +301,8 @@ public class Email {
 		 * ?=.*[0-9]는 사이트에선 알려줬는데, 내가 생각한 이유는 이러하다
 		 * 무조건 0-9가 포함되어야 하는데, ?=를 사용하고 무조건 사용하면 ?=+가 입력될수도 있을 것 같았다
 		 * 하지만 =+라는 패턴은 존재하지 않았다(아마 +=때문이 아닐까 싶다)
-		 * 따라서 .을 통해 무조건 한 글자는 입력 받고, 이렇게 입력받은 숫자가 [0-9]패턴에 존재하는지 확인하는게 아닐까 싶다.
+		 * 따라서 .을 통해 무조건 한 글자는 입력 받고, 이렇게 입력받은 숫자가 
+		 * [0-9]패턴에 존재하는지 확인하는게 아닐까 싶다.
 		 * (사실 이 부분은 진짜 모르겠습니다.... 그냥 제 생각엔 이런 것 같아서 써봤습니다)
 		 * .{4,20}을 통해, 전체 패스워드 길이가 4자 이상 20자 이하인 것도 검증 가능하다
 		 */
@@ -317,7 +320,8 @@ public class Email {
 	void print() {
 		for(int i =0;i<id.size();i++) {
 			System.out.println("아이디 : "+id.get(i).split("@")[0]);
-			String tmp = r_passwd.get(i).substring(0,2)+r_passwd.get(i).substring(2,r_passwd.get(i).length()).replaceAll(".", "*");
+			String tmp = r_passwd.get(i).substring(0,2)
+				     +r_passwd.get(i).substring(2,r_passwd.get(i).length()).replaceAll(".", "*");
 			System.out.println("비밀번호 : "+tmp);
 		}
 	}
