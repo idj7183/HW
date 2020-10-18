@@ -85,7 +85,7 @@ public class HW {
 		while(true) {
 			System.out.print("문자열을 입력해주세요(종료는 -1을 입력해주세요) : ");
 			String tmp = sc.nextLine();
-			// sc.nextLine()을 사용한 이유 : sc.next()를 사용하면 'a                -1'을 입력할 경우 a와 -1로 알아들어 함수가 종료되어버린다.
+// sc.nextLine()을 사용한 이유 : sc.next()를 사용하면 'a                -1'을 입력할 경우 a와 -1로 알아들어 함수가 종료됨
 			if(tmp.equals("-1")) {
 				System.out.println("a 개수 : " + cnt);
 				System.out.println("공백을 제외한 문자열 : " + sb);
@@ -128,6 +128,10 @@ public class HW {
 + 연도와 월을 입력해주세요 : **2020 2**
 
 ![제목 없음](https://user-images.githubusercontent.com/72785706/96362458-642eed00-1168-11eb-86a1-25d6ef214deb.png)
+
++ 컴퓨터에 저장된 2020년 2월 달력
+
+![제목 없음](https://user-images.githubusercontent.com/72785706/96362852-5f1f6d00-116b-11eb-9430-f2c290fb8bdc.png)
 
 **3번 실행결과**
 
