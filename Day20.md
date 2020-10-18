@@ -1,6 +1,10 @@
 # Day20 HW
 
 ### 1. 1 ~ 100000 까지 출력하는 for문을 작성하고 소요된 시간(밀리초)를 출력하세요
+### 2. 년, 월을 입력 받고 해당 월을 달력형태로 출력하세요. (토요일마다 줄바꿈이 일어나도록) 
+### 3. 사용자가 -1을 입력할 때까지 문자열을 입력 받고
+####    1) 입력된 문자열 중 소문자 'a'의 개수를 출력하세요.
+####    2) 비출력문자(공백,엔터 등)을 제외한 문자의 총 개수를 출력하세요.
 
 ```
 
@@ -99,16 +103,15 @@ public class HW {
 		}
 	}
 	
-		public static void main(String[] args) {
+	public static void main(String[] args) {
+		one(); //1번 실행
 		
 		int year = sc.nextInt();
 		nt month = sc.nextInt();
-		two(year,month);
+		two(year,month); //2번 실행
 		
 		StringBuilder sb = new StringBuilder();
-		three(sb);
-		
-		
+		three(sb); //3번 
 	}
 }
 	
