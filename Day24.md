@@ -25,7 +25,8 @@ class Dictionary{
 	public void exit(TreeMap<String, String> map) {
 		System.out.println("프로그램 종료");
 
-		try(FileOutputStream out = new FileOutputStream("words.w");ObjectOutputStream obOut = new ObjectOutputStream(out)){
+		try(FileOutputStream out = new FileOutputStream("words.w");
+			ObjectOutputStream obOut = new ObjectOutputStream(out)){
 			obOut.writeObject(map);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -133,7 +134,7 @@ public class HW {
 		}
 		
 		String menu = "1. 단어 추가\n" +"2. 단어 검색\n" + "3. 모든 단어 보기\n"+ "4. 퀴즈 풀기 \n" + "0. 종료\n"
-    +"입력 : ";
+   				 +"입력 : ";
 		String select;
 		String w, m;
 		String pattern = "^[a-zA-Z]*$";
@@ -200,3 +201,86 @@ public class HW {
 	}
 }
 ```
+* * *
+## 실행 결과
+### 첫 번째 실행
+```
+존재하지 않는 파일
+1. 단어 추가
+2. 단어 검색
+3. 모든 단어 보기
+4. 퀴즈 풀기 
+0. 종료
+입력 : 1
+영단어를 입력해주세요 : word
+뜻을 입력해주세요 : 단어
+1. 단어 추가
+2. 단어 검색
+3. 모든 단어 보기
+4. 퀴즈 풀기 
+0. 종료
+입력 : 1
+영단어를 입력해주세요 : wㅇrd
+영어가 아닙니다
+1. 단어 추가
+2. 단어 검색
+3. 모든 단어 보기
+4. 퀴즈 풀기 
+0. 종료
+입력 : 0
+프로그램 종료
+```
+### 두 번째 실행
+```
+1. 단어 추가
+2. 단어 검색
+3. 모든 단어 보기
+4. 퀴즈 풀기 
+0. 종료
+입력 : 3
+---- 단어 리스트 ----
+word:단어
+-----------------
+1. 단어 추가
+2. 단어 검색
+3. 모든 단어 보기
+4. 퀴즈 풀기 
+0. 종료
+입력 : 1
+영단어를 입력해주세요 : book
+뜻을 입력해주세요 : 책
+1. 단어 추가
+2. 단어 검색
+3. 모든 단어 보기
+4. 퀴즈 풀기 
+0. 종료
+입력 : 4
+book의 뜻은?책
+정답!
+1. 단어 추가
+2. 단어 검색
+3. 모든 단어 보기
+4. 퀴즈 풀기 
+0. 종료
+입력 : 2
+영단어를 입력해주세요 : book
+책
+1. 단어 추가
+2. 단어 검색
+3. 모든 단어 보기
+4. 퀴즈 풀기 
+0. 종료
+입력 : 3
+---- 단어 리스트 ----
+book:책
+word:단어
+-----------------
+1. 단어 추가
+2. 단어 검색
+3. 모든 단어 보기
+4. 퀴즈 풀기 
+0. 종료
+입력 : 0
+프로그램 종료
+```
+
