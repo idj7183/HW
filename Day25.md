@@ -189,7 +189,13 @@ public class HW {
 		
 	}
 }
-//예외 처리나 처음에 음수를 입력하는 경우의 수는 배제하였습니다. 그것까지 넣기엔 시간이... 부족했습니다....
+//예외 처리나 처음에 음수를 입력하는 경우의 수는 배제하였습니다.
 //나누기는 정수끼리의 나누기 입니다(즉, 26/5는 5.2가 아닌 5의 결과값으로 출력됨)
 ```
 ## 코딩결과
+![multi](https://user-images.githubusercontent.com/72785706/97256887-a1c20300-1857-11eb-92de-fe4547ed3613.png)
+![divide](https://user-images.githubusercontent.com/72785706/97256889-a38bc680-1857-11eb-80fc-4ffac3e08daa.png)
+![plus](https://user-images.githubusercontent.com/72785706/97256890-a4bcf380-1857-11eb-93ca-90678d5e21c9.png)
+![minus](https://user-images.githubusercontent.com/72785706/97256877-9a025e80-1857-11eb-9813-ba7b2fbb06b7.png)
+
+
