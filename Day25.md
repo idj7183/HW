@@ -120,7 +120,8 @@ class Cal{
 					}
 					
 					JOptionPane.showMessageDialog(frame, ("정답 : "+a));
-					System.exit(0);
+					field.setText("");
+					sb.delete(0, sb.length());
 				}
 				else {
 					stack.push(b.getText());
