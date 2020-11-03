@@ -130,3 +130,68 @@ MariaDB [studydb]> SELECT name,level FROM pokemon ORDER BY regdate DESC;
 +----------+-------+
 6 rows in set (0.001 sec)
 ```
+## 숙제 2
+
+```
+1. MEMBER 테이블 만들기 
+ 	    제약조건 : 
+		//Primary key 는 회원번호다.
+		//아이디는 중복이면 안된다.
+		//이메일도 중복이면 안된다.
+		//아이디는 누락되면 안된다.
+		//등급은 1 ~ 4가 있고 기본값은 1이다.
+		//적립금은 1000원이 기본값이고 음수일 수 없다.
+MariaDB [studydb]> CREATE TABLE MEMBER(
+    -> no INT PRIMARY KEY,
+    -> id VARCHAR(40) UNIQUE NOT NULL,
+    -> password VARCHAR(40),
+    -> email TEXT UNIQUE,
+    -> type ENUM('1','2','3','4') DEFAULT 1,
+    -> point INT DEFAULT 1000 CHECK(point>=0)
+    -> );
+Query OK, 0 rows affected (0.019 sec)
+
+2. QNA 테이블 만들기 
+	    제약조건 : 
+		//Primary key 는 질문번호다.
+		//글쓴이번호는 MEMBER 테이블의 회원번호를 참조한다
+		//글쓴이 회원이 삭제되면 해당 질문도 삭제된다. 
+		//질문 내용은 누락되면 안된다.
+		//등록일자는 기본값이 현재 시간이다. 
+MariaDB [studydb]> CREATE TABLE QNA(
+    -> no INT PRIMARY KEY,
+    -> content TEXT NOT NULL,
+    -> regdate DATE DEFAULT CURRENT_TIMESTAMP,
+    -> write_no INT,
+    -> FOREIGN KEY(write_no)
+    -> REFERENCES MEMBER(no) on DELETE CASCADE
+    -> );
+Query OK, 0 rows affected (0.017 sec)
+
+//설정된 MEMBER와 QNA DB 제약조건
+MariaDB [studydb]> DESC MEMBER;
++----------+-----------------------+------+-----+---------+-------+
+| Field    | Type                  | Null | Key | Default | Extra |
++----------+-----------------------+------+-----+---------+-------+
+| no       | int(11)               | NO   | PRI | NULL    |       |
+| id       | varchar(40)           | NO   | UNI | NULL    |       |
+| password | varchar(40)           | YES  |     | NULL    |       |
+| email    | text                  | YES  | UNI | NULL    |       |
+| type     | enum('1','2','3','4') | YES  |     | 1       |       |
+| point    | int(11)               | YES  |     | 1000    |       |
++----------+-----------------------+------+-----+---------+-------+
+6 rows in set (0.009 sec)
+
+MariaDB [studydb]> DESC QNA;
++----------+---------+------+-----+---------------------+-------+
+| Field    | Type    | Null | Key | Default             | Extra |
++----------+---------+------+-----+---------------------+-------+
+| no       | int(11) | NO   | PRI | NULL                |       |
+| content  | text    | NO   |     | NULL                |       |
+| regdate  | date    | YES  |     | current_timestamp() |       |
+| write_no | int(11) | YES  | MUL | NULL                |       |
++----------+---------+------+-----+---------------------+-------+
+4 rows in set (0.010 sec)
+
+```
+
